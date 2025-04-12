@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TrustScore - AI-Powered Verifiable Identity for Web3
 
-## Getting Started
+TrustScore is an AI-powered scoring system that analyzes your resume, GitHub, or LinkedIn profiles and issues a Verifiable TrustScore as a Verifiable Credential (VC) tied to your Decentralized Identity (DID).
 
-First, run the development server:
+## 🧠 Project Overview
+
+TrustScore helps solve the trust problem in Web3 by providing a way to verify skills and expertise without relying on centralized authority systems.
+
+### Key Features
+
+- **AI Analysis**: Advanced AI evaluation of your technical skills, project consistency, and contributions
+- **Decentralized Identity**: Built on DID protocols for full control of your identity without central authorities
+- **Verifiable Credentials**: Tamper-proof credentials that can be verified by anyone
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/kurakurasakti/trustz-web3-project.git
+
+# Navigate to the project directory
+cd trustz-web3-project
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: React, Next.js, Tailwind CSS, shadcn/ui
+- **AI**: OpenAI GPT-4-turbo, LangChain agent
+- **Identity**: Cheqd, DID-JWT, VC-JS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Project Structure
 
-## Learn More
+- `/src/app` - Next.js application routes
+- `/src/components` - React components
+- `/src/lib` - Utility functions and API integrations
 
-To learn more about Next.js, take a look at the following resources:
+## 👥 Built For
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Built for Dorahacks by Roy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License
