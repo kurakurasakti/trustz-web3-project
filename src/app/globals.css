@@ -1,26 +1,172 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Inter", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Neo-Futuristic Trust Theme - Light Mode */
+:root {
+  --radius: 0.75rem;
+  /* Color Palette: Midnight blue, Indigo, Soft cyan, White, Gray-200 */
+  --background: white;
+  --foreground: #0f172a; /* Midnight blue */
+  --card: white;
+  --card-foreground: #0f172a;
+  --popover: white;
+  --popover-foreground: #0f172a;
+  --primary: #6366f1; /* Indigo */
+  --primary-foreground: white;
+  --secondary: #e2e8f0; /* Light gray similar to Gray-200 */
+  --secondary-foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #22d3ee; /* Soft cyan */
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --border: #e2e8f0; /* Gray-200 */
+  --input: #e2e8f0;
+  --ring: #6366f1; /* Indigo */
+
+  /* Chart colors for data visualization */
+  --chart-1: #6366f1; /* Indigo */
+  --chart-2: #22d3ee; /* Soft cyan */
+  --chart-3: #0f172a; /* Midnight blue */
+  --chart-4: #94a3b8; /* Gray-400 */
+  --chart-5: #cbd5e1; /* Gray-300 */
+
+  /* Sidebar styles */
+  --sidebar: white;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #6366f1;
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: #22d3ee;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #6366f1;
+}
+
+/* Neo-Futuristic Trust Theme - Dark Mode */
+.dark {
+  --background: #0f172a; /* Midnight blue */
+  --foreground: white;
+  --card: #1e293b; /* Slightly lighter than background */
+  --card-foreground: white;
+  --popover: #1e293b;
+  --popover-foreground: white;
+  --primary: #6366f1; /* Indigo */
+  --primary-foreground: white;
+  --secondary: #334155; /* Darker gray for dark mode */
+  --secondary-foreground: white;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #22d3ee; /* Soft cyan */
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --border: #334155; /* Darker border for dark mode */
+  --input: #334155;
+  --ring: #6366f1;
+
+  /* Chart colors for dark mode data visualization */
+  --chart-1: #6366f1; /* Indigo */
+  --chart-2: #22d3ee; /* Soft cyan */
+  --chart-3: #94a3b8; /* Gray-400 */
+  --chart-4: #cbd5e1; /* Gray-300 */
+  --chart-5: #f8fafc; /* Gray-50 */
+
+  /* Sidebar styles for dark mode */
+  --sidebar: #1e293b;
+  --sidebar-foreground: white;
+  --sidebar-primary: #6366f1;
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: #22d3ee;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #334155;
+  --sidebar-ring: #6366f1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(34, 211, 238, 0.03) 0%,
+      rgba(99, 102, 241, 0.02) 45%,
+      transparent 70%
+    );
+    background-attachment: fixed;
+  }
+
+  /* Add subtle noise texture using a CSS pattern */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    z-index: -1;
+  }
+
+  /* Define focus-visible states for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring/50;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Button glow effect on hover */
+[data-slot="button"]:hover {
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Card subtle hover effect */
+[data-slot="card"]:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
 }
