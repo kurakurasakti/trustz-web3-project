@@ -10,13 +10,9 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
-    <body
-      className="min-h-screen bg-background font-sans antialiased"
-      suppressHydrationWarning
-      {...props}
-    >
+    <div className="font-sans antialiased" suppressHydrationWarning {...props}>
       {children}
-    </body>
+    </div>
   );
 }
 
